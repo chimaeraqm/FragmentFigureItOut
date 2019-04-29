@@ -12,9 +12,20 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class JumpSecondFragment extends Fragment
+import me.yokeyword.fragmentation.SupportFragment;
+
+public class JumpSecondFragment extends SupportFragment
 {
     static public String TAG = "JUMP_SECOND_FRAGMENT";
+
+    public static JumpSecondFragment newInstance()
+    {
+        Bundle args = new Bundle();
+
+        JumpSecondFragment fragment = new JumpSecondFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(Context context) {

@@ -11,10 +11,23 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-public class JumpFirstFragment extends Fragment
+import me.yokeyword.fragmentation.SupportFragment;
+
+public class JumpFirstFragment extends SupportFragment
 {
     static public String TAG = "JUMP_FIRST_FRAGMENT";
+
+
+    public static JumpFirstFragment newInstance()
+    {
+        Bundle args = new Bundle();
+
+        JumpFirstFragment fragment = new JumpFirstFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -34,6 +47,13 @@ public class JumpFirstFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_jump_first,container,false);
         Log.d("&&&&JumpFirstFragment","&&&&JumpFirstFragment_onCreateView");
+        Button bn_tosecond = view.findViewById(R.id.button);
+        bn_tosecond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                start(JumpSecondFragment.newInstance());
+            }
+        });
         return view;
     }
 
